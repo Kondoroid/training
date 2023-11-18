@@ -6,8 +6,15 @@
     = search_form_for [:admin, @q] do |f|
       .row
         .col-sm-4.form-group
-          = f.label :email
+          = f.label :last_name_cont, '姓'
+          = f.search_field :last_name_cont, class: 'form-control'
+        .col-sm-4.form-group
+          = f.label :first_name_cont, '名'
+          = f.search_field :first_name_cont, class: 'form-control'
+        .col-sm-4.form-group
+          = f.label :email_cont, 'Eメールアドレス'
           = f.search_field :email_cont, class: 'form-control'
+
       ul.list-inline
         li = f.submit t('admin.actions.search'), class: 'btn-search'
     .pull-right
@@ -18,9 +25,9 @@
       thead
         tr
           th = sort_link @q, :id
-          th = sort_link @q, :email
-          th = sort_link @q, :last_name
-          th = sort_link @q, :first_name
+          th = sort_link @q, :last_name, '姓'
+          th = sort_link @q, :first_name, '名'
+          th = sort_link @q, :email, 'Eメールアドレス'
           th = sort_link @q, :created_at
           th = sort_link @q, :updated_at
           th
@@ -28,9 +35,9 @@
         - @users.each do |user|
           tr
             td = user.id
-            td = user.email
             td = user.last_name
             td = user.first_name
+            td = user.email
             td = l(user.created_at)
             td = l(user.updated_at)
             td = link_to t('admin.actions.show'), admin_user_path(user), class: 'btn-show'

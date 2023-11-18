@@ -24,6 +24,7 @@ gem 'devise-i18n'
 
 # 検索
 gem 'ransack'
+gem 'pg_search'
 
 # 画像アップロード
 gem 'carrierwave'

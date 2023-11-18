@@ -22,6 +22,10 @@ html lang="ja"
           = link_to admin_admin_users_path, class: 'c-sidebar-nav-link' do
             i.cil-user.mr-1
             = t('admin.title.admin_users.index')
+        li.c-sidebar-nav-item class="#{'c-active' if controller_name == 'users'}"
+          = link_to admin_users_path, class: 'c-sidebar-nav-link' do
+            i.cil-user.mr-1
+            =t('admin.title.users.index')
       / button.c-sidebar-minimizer.c-class-toggler data-class="c-sidebar-minimized" data-target="_parent" type="button" 
 
     .c-wrapper
